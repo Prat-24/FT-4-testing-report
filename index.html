@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRE VEHICLE TEST REPORT</title>
+    
+</head>
+
+<body>
+
+    <div class="form-container" id="pdf-content">
+        <table class="header-table">
+            <tr>
+                <td rowspan="2" style="width: 10%; text-align: center;">
+                    <img src="hpcl-logo.png" alt="HP Logo" class="hp-logo">
+                </td>
+                <td class="header-left">
+                    <strong>Hindustan Petroleum Corporation Limited</strong><br><br>
+                    Mumbai Refinery
+                </td>
+                <td rowspan="3" class="header-right">
+                    Issue No: 1<br>
+                    Issue Date: 6/11/2024<br>
+                    Rev No: 0<br>
+                    Rev Date:<br>
+                    <span class="no-wrap">Doc No: HPCL MR/FRM/F&S/08200-02</span>
+                </td>
+                
+            </tr>
+            <tr>
+                <td class="header-left">
+                    <strong>Testing Of Fire Vehicles FT-04</strong>
+                </td>
+               
+            </tr>
+        </table>
+        
+        <!-- Date and Shift -->
+        
+        <div class="flex-row">
+            <div class="form-group">
+                <label>DATE</label>
+                <input type="date" name="Date">
+            </div>
+
+            <div class="form-group">
+                <label>SHIFT</label>
+                    <select name="Shift" required>
+                        <option value="">Select</option>
+                        <option value="00x08">00x08</option>
+                        <option value="08x20">08x20</option>
+                        <option value="08x16">08x16</option>
+                        <option value="16x00">16x00</option>
+                        <option value="20x08">20x08</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                <label>VEHICLE</label>
+                    <select name="Vehicle" required>
+                        <option value="">Select</option>
+                        <option value="Foam tender-01">Foam tender-01</option>
+                        <option value="Foam tender-02">Foam tender-02</option>
+                        <option value="Foam tender-03">Foam tender-03</option>
+                        <option value="Foam tender-04">Foam tender-04</option>
+                        <option value="Foam tender-05">Foam tender-05</option>
+                    </select>
+            </div>
+        </div>
+
+        <!-- Status Section -->
+        <h3>1.VEHICLE CHECK</h3>
+        <table>
+            <tr>
+                <td>Body condition</td>
+                <td>
+                    <select name="Bodycondition">
+                        <option value="">Select</option>
+                        <option>Okay</option>
+                        <option>Not okay</option>
+                    </select></td>
+
+                <td>Tyre condition</td>
+                <td><select name="Tyrecondition">
+                            <option value="">Select</option>
+                            <option>Okay</option>
+                        <option>Not okay</option>
+                    </select></td>
+
+                <td>Odometer</td>
+                <td><select name="Odometer">
+                                <option value="">Select</option>
+                                <option>Okay</option>
+                        <option>Not okay</option>
+                    </select></td>
+                
+            </tr>
+            <tr>
+                <td>Pump oil</td>
+                <td><select name="Pumpoil">
+                        <option value="">Select</option>
+                        <option>Full</option>
+                        <option>Low</option>
+                        <option>Empty</option>
+                    </select></td>
+
+                <td>Air Pressure</td>
+                <td><select name="Airpressure">
+                        <option value="">Select</option>
+                        <option>Full</option>
+                        <option>Low</option>
+                        <option>Empty</option>
+                    </select></td>
+                
+                <td>Speedometer</td>
+                <td><select name="Speedometer">
+                            <option value="">Select</option>
+                            <option>Okay</option>
+                        <option>Not okay</option>
+                    </select></td>
+                
+            </tr>
+            <tr>
+                <td>Engine oil</td>
+                <td><select name="Engineoil">
+                        <option value="">Select</option>
+                        <option>Full</option>
+                        <option>Low</option>
+                        <option>Empty</option>
+                    </select></td>
+                <td>Radiator water</td>
+                <td><select name="Radiatorwater">
+                            <option value="">Select</option>
+                            <option>Full</option>
+                        <option>Low</option>
+                        <option>Empty</option>
+                    </select></td>
+            </tr>
+        </table>
+
+        <h3>2.STATIC RUN OF WATER</h3>
+        <h4>a. Pump tested in circulation</h4>
+        <table>
+            <tr>
+              <td>Pump start time (HH:MM)</td>
+              <td>
+                <input type="time" name="starttime">
+              </td>
+              <td>Pump stop time (HH:MM)</td>
+              <td>
+                <input type="time" name="stoptime">
+              </td>
+            </tr>
+            <tr>
+                <td>Discharge Pressure</td>
+                <td>
+                  <input type="text" name="DischargePressure">
+                </td>
+                <td>Engine RPM</td>
+                <td>
+                  <input type="text" name="EngineRPM">
+                </td>
+              </tr>
+
+            <tr>
+                <td>Delivery inlet /outlet</td>
+                <td><select name="DeliveryInlet/outlet">
+                        <option value="">Select</option>
+                        <option>Okay</option>
+                        <option>Not okay</option>
+                    </select></td>
+
+                <td>Delivery O/L Gasket condition</td>
+                <td><select name="Gasketcondition">
+                            <option value="">Select</option>
+                            <option>Okay</option>
+                            <option>Not okay</option>
+                        </select></td>
+            </tr>
+
+            <tr>
+                <td>Cooling line and its valve</td>
+                <td><select name="Coolinglineandvalve">
+                        <option value="">Select</option>
+                        <option>Okay</option>
+                        <option>Not okay</option>
+                    </select></td>
+
+                <td>Circulation Valve</td>
+                <td><select name="CirculationValve">
+                            <option value="">Select</option>
+                            <option>Okay</option>
+                            <option>Not okay</option>
+                        </select></td>
+            </tr>
+
+            <tr>
+                <td>Pump throttle </td>
+                <td><select name="Pumpthrottle">
+                        <option value="">Select</option>
+                        <option>Working</option>
+                        <option>Not working</option>
+                    </select></td>
+
+                <td>Tank to pump valve condition</td>
+                <td><select name="Tanktopump">
+                            <option value="">Select</option>
+                            <option>Okay</option>
+                            <option>Not okay</option>
+                        </select></td>
+            </tr>
+          </table>
+
+          <h4>b.Monitor:Using Third boom</h4>
+        <table>
+            <tr>
+                <td>Monitor movement </td>
+                <td><select name="Monitormovement">
+                        <option value="">Select</option>
+                        <option>Working</option>
+                        <option>Not working</option>
+                    </select></td>
+
+                <td>Outlet flow </td>
+                <td><select name="Outletflow">
+                            <option value="">Select</option>
+                            <option>Satisfactory</option>
+                            <option>Not satisfactory</option>
+                        </select></td>
+            </tr>
+
+
+            <tr>
+                <td>Tank to monitor valve</td>
+                <td><select name="Tanktomonitor">
+                        <option value="">Select</option>
+                        <option>Okay</option>
+                        <option>Not okay</option>
+                    </select></td>
+
+                    <td>Performance with</td>
+                    <td>
+                        <label>
+                            <input type="checkbox" name="performancewith" value="Jet"> Jet
+                        </label>
+                        <label>
+                            <input type="checkbox" name="performancewith" value="Fog"> Fog
+                        </label>
+                        <label>
+                            <input type="checkbox" name="performancewith" value="Spray"> Spray
+                        </label>
+                    </td>
+            </tr>
+        </table>  
+        
+        <h4>c.Hose Reel</h4>
+        <table>
+
+            <tr>
+                <td>Hose Pipe condition</td>
+                <td><select name="HosePipecondition">
+                        <option value="">Select</option>
+                        <option>Okay</option>
+                        <option>Not okay</option>
+                    </select></td>
+
+                <td>Nozzle</td>
+                <td><select name="Nozzle">
+                            <option value="">Select</option>
+                            <option>Okay</option>
+                            <option>Not okay</option>
+                        </select></td>
+            </tr>
+
+            <tr>
+                <td>Hose reel outlet flow</td>
+                <td><select name="Hosereeloutletflow">
+                        <option value="">Select</option>
+                        <option>Satisfactory</option>
+                        <option>Unsatisfactory</option>
+                    </select></td>
+
+                <td>Hose Reel drum</td>
+                <td><select name="HoseReeldrum">
+                            <option value="">Select</option>
+                            <option>Okay</option>
+                            <option>Not okay</option>
+                        </select></td>
+            </tr>
+
+            <tr>
+            <td>Hose reel main valve</td>
+                <td><select name="Hosereelmainvalve">
+                            <option value="">Select</option>
+                            <option>Okay</option>
+                            <option>Not okay</option>
+                        </select></td>
+            </tr>
+        </table>
+
+        <h3>3.STATIC RUN (FOAM)</h3>
+        <td><select name="staticrunfoam">
+          <option value="">Select</option>
+          <option>Tested</option>
+          <option>Not tested</option>
+      </select></td>
+      <table>
+          <tr>
+              <td>Foam proportioner setting %</td>
+              <td>
+                  <input type="text" name="Foamproportioner">
+              </td>
+          </tr>
+          <tr>
+              <td>Foam proportioner valve condition</td>
+              <td><select name="valvecondition">
+                          <option value="">Select</option>
+                          <option>Okay</option>
+                          <option>Not okay</option>
+                      </select></td>
+          </tr>
+          <tr>
+              <td>Foam Main valve condition </td>
+              <td><select name="FoamMain">
+                          <option value="">Select</option>
+                          <option>Okay</option>
+                          <option>Not okay</option>
+                      </select></td>
+          </tr>
+          <tr>
+              <td>Quality of foam produced from</td>
+          </tr>
+          <tr>
+              <td>i. Delivery outlet</td>
+              <td><select name="Deliveryoutlet">
+                  <option value="">Select</option>
+                  <option>Satisfactory</option>
+                  <option>Unsatisfactory</option>
+              </select></td>
+          </tr>
+          <tr>
+              <td>ii. Monitor</td>
+              <td><select name="Monitor">
+                  <option value="">Select</option>
+                  <option>Satisfactory</option>
+                  <option>Unsatisfactory</option>
+              </select></td>
+          </tr>
+          <tr>
+              <td>iii. Inline Inductor</td>
+              <td><select name="InlineInductor">
+                  <option value="">Select</option>
+                  <option>Satisfactory</option>
+                  <option>Unsatisfactory</option>
+              </select></td>
+          </tr>
+          <tr>
+              <td>Foam Tank level before operation</td>
+              <td>
+                  <input type="text" name="beforeoperation">
+              </td>
+          </tr>
+
+          <tr>
+              <td>Foam Tank level after operation</td>
+              <td>
+                  <input type="text" name="afteroperation">
+              </td>
+          </tr>
+          <tr>
+              <td>Approximately foam compound used</td>
+              <td>
+                  <input type="text" name="foamcompoundused">
+              </td>
+          </tr>
+
+          <tr>
+              <td>Flushing done with fresh water</td>
+              <td><select name="Flushingdone">
+                          <option value="">Select</option>
+                          <option>Yes</option>
+                          <option>No</option>
+                      </select></td>
+          </tr>
+
+  
+      </table>
+
+
+
+      <h3>4.HYDRAULIC BOOM, ASSOCIATED INSTRUMENT AND PARTS PHYSICAL CONDITIONS</h3>
+          <td><select name="Hydraulicboom">
+            <option value="">Select</option>
+            <option>Checked</option>
+            <option>Not checked</option>
+        </select></td>
+        <table>
+            <tr>
+                <td>Jack operating Valves conditions</td>
+                <td><select name="jackoperating">
+                    <option value="">Select</option>
+                    <option>Okay</option>
+                    <option>Not okay</option>
+                    <option>Checked</option>
+                    <option>Not checked</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>All four Jack Condition</td>
+                <td><select name="fourjack">
+                            <option value="">Select</option>
+                            <option>Okay</option>
+                            <option>Not okay</option>
+                            <option>Checked</option>
+                            <option>Not checked</option>
+                        </select></td>
+            </tr>
+            <td>Hydraulic boom lifting/lowering /rotation from remote control
+                Foam Main valve condition </td>
+                <td><select name="remotecontrol">
+                            <option value="">Select</option>
+                            <option>Okay</option>
+                            <option>Not okay</option>
+                            <option>Checked</option>
+                            <option>Not checked</option>
+                        </select></td>
+            </tr>
+    
+            <tr>
+                <td> Hydraulic boom lifting/lowering /rotation from Joystick at top of roof</td>
+                <td><select name="joystick">
+                    <option value="">Select</option>
+                    <option>Okay</option>
+                    <option>Not okay</option>
+                    <option>Checked</option>
+                    <option>Not checked</option>
+                </select></td>
+            </tr>
+
+            <tr>
+                <td> Hydraulic boom level signal at top of roof on control box</td>
+                <td><select name="controlbox">
+                    <option value="">Select</option>
+                    <option>Okay</option>
+                    <option>Not okay</option>
+                    <option>Checked</option>
+                    <option>Not checked</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>All switches/linkages/oil pipe conditions</td>
+                <td><select name="pipeconditions">
+                    <option value="">Select</option>
+                    <option>Okay</option>
+                    <option>Not okay</option>
+                    <option>Checked</option>
+                    <option>Not checked</option>
+                </select></td>
+            </tr>
+
+            <tr>
+                <td>Hydraulic Boom remote condition</td>
+                <td><select name="remotecondition">
+                    <option value="">Select</option>
+                    <option>Okay</option>
+                    <option>Not okay</option>
+                    <option>Checked</option>
+                    <option>Not checked</option>
+                </select></td>
+            </tr>
+
+            <tr>
+                <td>Hydraulic boom/jack switch over valve condition</td>
+                <td><select name="jackswitch">
+                    <option value="">Select</option>
+                    <option>Okay</option>
+                    <option>Not okay</option>
+                    <option>Checked</option>
+                    <option>Not checked</option>
+                </select></td>
+            </tr>
+
+            <tr>
+                <td>Hydraulic boom oil level</td>
+                <td><select name="oillevel">
+                    <option value="">Select</option>
+                    <option>Okay</option>
+                    <option>Not okay</option>
+                    <option>Checked</option>
+                    <option>Not checked</option>
+                </select></td>
+            </tr>
+
+    
+        </table>
+
+
+        <h3>5.ELECTRICAL SWITCH/PNEUMATIC SWITCHES /BLINKER LIGHTING/PA SYSTEM</h3>
+      <table>
+          <tr>
+              <td> All electrical switches condition and performance</td>
+              <td><select name="electricalswitches">
+                  <option value="">Select</option>
+                  <option>Okay</option>
+                  <option>Not okay</option>
+                  <option>Checked</option>
+                  <option>Not checked</option>
+              </select></td>
+          </tr>
+          <tr>
+              <td>All pneumatic switch/valve operation</td>
+              <td><select name="pneumaticswitch">
+                          <option value="">Select</option>
+                          <option>Okay</option>
+                          <option>Not okay</option>
+                          <option>Checked</option>
+                          <option>Not checked</option>
+                      </select></td>
+          </tr>
+          <td>Blinker light and siren performance</td>
+              <td><select name="siren">
+                          <option value="">Select</option>
+                          <option>Okay</option>
+                          <option>Not okay</option>
+                          <option>Checked</option>
+                          <option>Not checked</option>
+                      </select></td>
+          </tr>
+  
+          <tr>
+              <td>PA system performance</td>
+              <td><select name="PAsystem">
+                  <option value="">Select</option>
+                  <option>Okay</option>
+                  <option>Not okay</option>
+                  <option>Checked</option>
+                  <option>Not checked</option>
+              </select></td>
+          </tr>
+
+          <tr>
+              <td>Locker lighting operation</td>
+              <td><select name="locker">
+                  <option value="">Select</option>
+                  <option>Okay</option>
+                  <option>Not okay</option>
+                  <option>Checked</option>
+                  <option>Not checked</option>
+              </select></td>
+          </tr>
+      </table>
+
+
+        <!-- Remarks and Observations -->
+        <div class="form-group">
+            <label>6.REMARKS</label>
+            <textarea id="msg1" name="remarks"></textarea>
+        </div>
+
+        <div class="flex-row">
+            <div class="form-group">
+                <label>Garage(Notification number):</label>
+                <input type="text" name="garage">
+            </div>
+            <div class="form-group">
+                <label>Rotary(Notification number):</label>
+                <input type="text" name="rotary">
+            </div>
+            <div class="form-group">
+                <label>Instrument(Notification number):</label>
+                <input type="text" name="Instrument">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>TESTED BY</label>
+            <input type="text" name="tested by">
+        </div>
+
+        <!-- Save as PDF Button (will be hidden in PDF) -->
+        <button id="saveAsPdf">Save as PDF</button>
+    </div>
+
+    <script src="script.js"></script>
+
+   
+    
+    
+</body>
+
+</html>
